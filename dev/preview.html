@@ -1,0 +1,50 @@
+<!doctype html>
+<!-- kintone なしで設定画面を確認するためのページ。npm run build のあとにブラウザで開く。 -->
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>設定画面プレビュー</title>
+    <link rel="stylesheet" href="../plugin/css/config.css" />
+    <style>
+      body { margin: 0; padding: 0 24px; background: #f5f5f5; font-family: "Meiryo", sans-serif; }
+    </style>
+  </head>
+  <body>
+    <div id="plugin-config-root"></div>
+    <script>
+      // kintone API の代わりに、サンプルの顧客管理アプリの項目を返す
+      const properties = {
+        種別: { code: '種別', label: '顧客種別', type: 'RADIO_BUTTON', options: { 個人: { label: '個人', index: '0' }, 法人: { label: '法人', index: '1' } } },
+        法人名: { code: '法人名', label: '法人名', type: 'SINGLE_LINE_TEXT' },
+        担当部署: { code: '担当部署', label: '担当部署', type: 'SINGLE_LINE_TEXT' },
+        請求書送付: { code: '請求書送付', label: '請求書送付', type: 'CHECK_BOX', options: { 郵送: { label: '郵送', index: '0' }, メール: { label: 'メール', index: '1' } } },
+        送付先住所: { code: '送付先住所', label: '送付先住所', type: 'MULTI_LINE_TEXT' },
+        送付先メール: { code: '送付先メール', label: '送付先メール', type: 'LINK' },
+        法人情報: { code: '法人情報', label: '法人情報', type: 'GROUP' },
+        レコード番号: { code: 'レコード番号', label: 'レコード番号', type: 'RECORD_NUMBER' },
+      };
+      let saved = {
+        config: JSON.stringify({
+          version: 1,
+          rules: [{ id: 'sample', conditionField: '種別', operator: 'equals', value: '法人', showFields: ['法人名', '担当部署'], requireFields: ['法人名'] }],
+        }),
+      };
+      window.kintone = {
+        $PLUGIN_ID: 'preview',
+        app: { getId: () => 1 },
+        api: Object.assign(async () => ({ properties }), { url: (path) => path }),
+        plugin: {
+          app: {
+            getConfig: () => saved,
+            setConfig: (config) => {
+              saved = config;
+              console.log('setConfig', JSON.parse(config.config));
+              alert('保存しました（プレビューなので実際には保存されません）');
+            },
+          },
+        },
+      };
+    </script>
+    <script src="../plugin/js/config.js"></script>
+  </body>
+</html>

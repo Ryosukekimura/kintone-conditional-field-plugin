@@ -1,0 +1,167 @@
+/* kintone の設定画面になじむ配色（すべて .app 配下に閉じ込めて kintone 本体に影響させない） */
+.app {
+  --c-border: #e3e7e8;
+  --c-text: #333;
+  --c-muted: #888;
+  --c-primary: #3498db;
+  --c-danger: #e74c3c;
+  --c-bg-soft: #f7f9fa;
+  max-width: 960px;
+  padding: 16px 0 48px;
+  color: var(--c-text);
+  font-size: 14px;
+}
+
+.app__lead {
+  margin: 0 0 20px;
+  line-height: 1.7;
+}
+
+.app__footer {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.rule-card {
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  border: 1px solid var(--c-border);
+  border-radius: 6px;
+  background: #fff;
+}
+
+.rule-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.rule-card__header h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.rule-card__condition {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 4px;
+  background: var(--c-bg-soft);
+}
+
+.rule-card__condition select,
+.rule-card__condition input {
+  min-width: 160px;
+  height: 36px;
+  padding: 0 8px;
+  border: 1px solid var(--c-border);
+  border-radius: 4px;
+  background: #fff;
+  font-size: 14px;
+}
+
+.rule-card__keyword {
+  font-weight: bold;
+}
+
+.rule-card__targets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.checklist {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--c-border);
+  border-radius: 4px;
+}
+
+.checklist legend {
+  padding: 0 4px;
+  font-weight: bold;
+}
+
+.checklist__count {
+  margin-left: 8px;
+  color: var(--c-muted);
+  font-weight: normal;
+}
+
+.checklist__note {
+  margin: 0 0 8px;
+  color: var(--c-muted);
+  font-size: 12px;
+}
+
+.checklist__items {
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.checklist__items label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+.checklist__code {
+  color: var(--c-muted);
+  font-size: 12px;
+}
+
+.checklist__empty {
+  margin: 0;
+  color: var(--c-muted);
+}
+
+.button {
+  min-width: 100px;
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--c-border);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--c-text);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--c-bg-soft);
+}
+
+.button--primary {
+  border-color: var(--c-primary);
+  background: var(--c-primary);
+  color: #fff;
+}
+
+.button--primary:hover {
+  background: #2980b9;
+}
+
+.button--danger {
+  min-width: 64px;
+  height: 32px;
+  border-color: var(--c-danger);
+  color: var(--c-danger);
+}
+
+.message {
+  margin: 16px 0;
+  padding: 12px 16px 12px 32px;
+}
+
+.message--error {
+  border-left: 4px solid var(--c-danger);
+  background: #fdecea;
+  color: #b03a2e;
+}

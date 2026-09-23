@@ -1,0 +1,28 @@
+{
+  "manifest_version": 1,
+  "version": "1.0.0",
+  "type": "APP",
+  "name": {
+    "ja": "条件付き表示・必須プラグイン",
+    "en": "Conditional Field Plugin"
+  },
+  "description": {
+    "ja": "項目の値に応じて、ほかの項目の表示・非表示や必須を切り替えます。",
+    "en": "Show, hide, or require fields depending on another field's value."
+  },
+  "icon": "image/icon.png",
+  "homepage_url": {
+    "ja": "https://github.com/Ryosukekimura/kintone-conditional-field-plugin",
+    "en": "https://github.com/Ryosukekimura/kintone-conditional-field-plugin"
+  },
+  "desktop": {
+    "js": ["js/desktop.js"],
+    "css": []
+  },
+  "config": {
+    "html": "html/config.html",
+    "js": ["js/config.js"],
+    "css": ["css/config.css"],
+    "required_params": []
+  }
+}

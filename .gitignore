@@ -1,0 +1,6 @@
+node_modules/
+dist/
+plugin/js/
+# 秘密鍵: プラグインIDを決める鍵なので、なくさないよう別途バックアップし、公開しない
+*.ppk
+.env
